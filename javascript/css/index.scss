@@ -1,0 +1,183 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  box-sizing: border-box;
+  font-family: serif;
+}
+
+header{
+  .headerLeft{
+    padding: 0px 20px;
+    display: inline-block;
+  }
+  .headerRight{
+    margin-right: 10px;
+    float: right;
+    display: inline-block;
+    position: relative;
+    ul{
+      li{
+        display: inline-block;
+        padding: 0px 10px;
+      }
+    }
+    .burger{
+      width: 25px;
+      height: 2px;
+      background-color: #444;
+      position: absolute;
+      top: 50%;
+      right: 3%;
+      transform: translateY(-50%);
+      visibility: hidden;
+      &::before{
+        content: "";
+        width: 25px;
+        height: 2px;
+        background-color: #444;
+        position: absolute;
+        top: -6px;
+      }
+      &::after{
+        content: "";
+        width: 25px;
+        height: 2px;
+        background-color: #444;
+        position: absolute;
+        top: 6px;
+      }
+    }
+  }
+}
+section{
+  display: grid;
+  justify-items: center;
+  // justify-content: center;
+  align-items: center;
+  // grid-template-columns: 1fr;
+  // grid-template-rows: auto;
+  // margin: auto;
+  width: 100%;
+
+  .navbar{
+    width: 100%;
+    height: 300px;
+    background-color: rgb(183, 217, 233);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    .title{
+      font-size: 40px;
+      font-weight: 600;
+    }
+  }
+  .middle{
+    width: 1200px;
+    // background-color: #666;
+    .promotionOutter{
+      display: grid;
+      grid-template-columns: 49% 49%;
+      justify-content: space-between;
+      .promotion{
+        background-color: rgb(135, 155, 192);
+        width: 100%;
+        height: 50px;
+        position: relative;
+        margin-bottom: 30px;
+        .proImage{
+          width: 80px;
+          height: 50px;
+          background-image: url('../images/girlsday.jpeg');
+          background-position: center;
+          background-size: cover;
+        }
+        .proText{
+          position: absolute;
+          left: 90px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    .content{
+      display: grid;
+      grid-template-columns: calc(94%/4) calc(94%/4) calc(94%/4) calc(94%/4);
+      justify-content: space-between;
+      .conBox{
+        margin-bottom: 30px;
+        .conImage{
+          width: 100%;
+          height: 0;
+          padding-bottom: 100%;
+          background-image: url("../images/hyeri.jpeg");
+          background-position: center;
+          background-size: cover;
+        }
+        .contxtBox{
+          width: 100%;
+          height: 45px;
+          background-color: rgb(165, 184, 217);
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          .conTxt{
+            grid-template-columns: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+footer{
+  height: 120px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  button{
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid #555;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  section{
+    .middle{
+      width: 90%;
+      .content{
+        display: grid;
+        grid-template-columns: 49% 49%;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px){
+  header{
+    .headerRight{
+      ul{
+        visibility: hidden;
+      }
+      .burger{
+        visibility: visible;
+      }
+    }
+  }
+  section{
+    .middle{
+      .promotionOutter{
+        grid-template-columns: 100%;
+      }
+      .content{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: space-between;
+      }
+    }
+  }
+}
